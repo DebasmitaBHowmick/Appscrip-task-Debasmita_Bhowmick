@@ -1,10 +1,50 @@
-export default async function handlerAPI(req, res) {
-  try {
-    const response = await fetch("https://fakestoreapi.com/products");
-    const data = await response.json();
+export const products=  [{
+    id: 1,
+    title: "PPXOC Milkyway Dress",
+    price: 2999,
+    category: "Women",
+    image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTe_HrfP2cTNwJv7Oox1xz1Xsq6hIGfv3Z9XW2j6B5Hm4oSHyspV6euael-XCQ5dK-XnaOhRFcTgbNcdslPMmMcRY5UxshE_x9SJet3aBro",
+    description: "Sign in or create an account to see pricing",
+},
+{
+    id: 2,
+    title: "Handcrafted Backpack",
+    price: 4599,
+    category: "Accessories",
+    image: "https://m.media-amazon.com/images/I/61CRNGgMEyL._AC_UY1100_.jpg",
+    description: "Sign in or create an account to see pricing",
+  },
+  {
+    id: 3,
+    title: "Soft Toy Dinosaur",
+    price: 1299,
+    category: "Kids",
+    image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT9AnlmOy7JP7ClphU8s_O3utbhVx8LaLiBzHipbvTU48N9Da6T-vRaCit0Vo5S4IZb4oAYaJRJ79SmoOJtwiyahTi_s-EF8-1pl6MnKt5WfxhRXAno1yQX",
+    description: "Sign in or create an account to see pricing",
+  },
 
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(500).json([]);
-  }
-}
+  {
+    id: 4,
+    title: "Travel Diary",
+    price: 129,
+    category: "Teenager/Adult",
+    image: "https://i.pinimg.com/originals/78/a0/73/78a0734fc44c957c6b0bb076ddf32625.jpg",
+    description: "Sign in or create an account to see pricing",
+  },
+  {
+    id: 5,
+    title: "Men's Casual Shirt",
+    price: 1599,
+    category: "Men",
+    image: "https://www.bing.com/th?id=OPAC.jgPxZRjvxArAGQ474C474&o=5&pid=21.1&w=140&h=210&rs=1&qlt=100&dpr=1.3&o=2&c=8&pcl=f5f5f5",
+    description: "Sign in or create an account to see pricing",
+  },
+  {
+    id: 6,
+    title: "Women's Running Shoes",
+    price: 2299,
+    category: "Women",
+    image: "https://www.bing.com/th?id=OPAC.d2HiOVuea58HtQ474C474&o=5&pid=21.1&w=128&h=128&rs=1&qlt=100&dpr=1.3&o=2&bw=6&bc=FFFFFF",
+    description: "Sign in or create an account to see pricing",
+  },
+]

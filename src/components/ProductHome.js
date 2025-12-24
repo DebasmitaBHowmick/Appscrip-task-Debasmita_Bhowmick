@@ -44,7 +44,7 @@ const ProductHome = ({ products }) => {
   {/* Heading */}
   <h1 className={styles.heading}>DISCOVER OUR PRODUCTS</h1>
   <p className={styles.subtitle}>
-    lorem* ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    lorem* ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>
     tempor incididunt ut labore et dolore magna aliqua. 
   </p>
 
@@ -78,6 +78,7 @@ const ProductHome = ({ products }) => {
           <div className={styles.info}>
             <h3 className={styles.title}>{product.title}</h3>
             <p className={styles.category}>{product.category}</p>
+            <p style={{fontStyle: "italic"}}>{product.description}</p>
 
             <div className={styles.meta}>
               <span className={styles.price}>₹ {product.price}</span>

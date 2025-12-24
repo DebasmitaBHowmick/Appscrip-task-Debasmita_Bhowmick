@@ -42,9 +42,8 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ## Deploy on Vercel
 
-This project demonstrates Server-Side Rendering (SSR) using Next.js through getServerSideProps.
-Because of this, the project is deployed on Vercel, which provides native and first-class support for SSR in Next.js.
+Initially, the application fetched product data from a public API (FakeStore). While this worked reliably in local development, the API proved unstable in a serverless SSR environment, frequently returning non-JSON or failed responses during deployment. This caused inconsistent server-rendered output without reflecting issues in the application logic itself.
 
-Platforms like Netlify are static-first and do not execute getServerSideProps at runtime without additional adapters or configuration. Since the goal of this assignment is to showcase SSR knowledge and correct architectural decisions, Vercel was the appropriate choice.
+To ensure deterministic and reliable SSR, the product data was moved to a local dataset and injected into the page using getServerSideProps. This approach guarantees that data is available at render time and allows the focus to remain on SSR behavior, layout logic, filtering, and sorting—core aspects of the assignment. Importantly, the data is still rendered on the server, preserving the SSR requirement. Only the data source changed, not the rendering strategy.
 
-Live Link: 
+
