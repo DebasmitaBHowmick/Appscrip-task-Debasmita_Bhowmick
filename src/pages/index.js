@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ProductHome from "../components/ProductHome";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
     const res = await fetch(process.env.NEXT_PUBLIC_PRODUCTS_URL || 'https://fakestoreapi.com/products');
     if(!res.ok){ 
@@ -12,7 +12,6 @@ export async function getStaticProps() {
     //console.log(products);
     return {
       props: {products},
-      revalidate: 60, 
     };
    
   } catch (error) {
