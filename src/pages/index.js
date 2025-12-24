@@ -12,7 +12,7 @@ export async function getStaticProps() {
     //console.log(products);
     return {
       props: {products},
-      revalidate: 60, // Revalidate every 60 seconds
+      revalidate: 60, 
     };
    
   } catch (error) {
