@@ -3,7 +3,7 @@ import ProductHome from "../components/ProductHome";
 
 export async function getServerSideProps() {
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_PRODUCTS_API);
+    const res = await fetch('https://fakestoreapi.com/products');
     if(!res.ok){ 
       throw new Error('Failed to fetch data');
     };
