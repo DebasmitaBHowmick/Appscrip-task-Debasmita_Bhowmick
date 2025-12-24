@@ -65,7 +65,7 @@ const[filters, setFilters] = useState(false)
 
           {/* Product grid on middle */}
         <div className={styles.grid}>
-          {products.map((product) => (
+          {Array.isArray(products) && products.map((product) => (
             <article key={product.id} className={styles.card}>
               <div className={styles.imageWrap}>
                 <img src={product.image} alt={product.title || 'Product Image'}
