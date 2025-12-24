@@ -17,25 +17,25 @@ const [sortOption, setSortOption] = useState("RECOMMENDED");
 
 //Logic for sorting products based on sortOption using memoization
 
-const sortProducts = useMemo(() => {
-    let sortedProducts = [...products]; 
+// const sortProducts = useMemo(() => {
+//     let sortedProducts = [...products]; 
 
-    switch (sortOption) {
-      case "PRICE : HIGH TO LOW":
-        return sortedProducts.sort((a, b) => b.price - a.price);
+//     switch (sortOption) {
+//       case "PRICE : HIGH TO LOW":
+//         return sortedProducts.sort((a, b) => b.price - a.price);
 
-      case "PRICE : LOW TO HIGH":
-        return sortedProducts.sort((a, b) => a.price - b.price);
+//       case "PRICE : LOW TO HIGH":
+//         return sortedProducts.sort((a, b) => a.price - b.price);
 
-      case "NEWEST FIRST":
-        return sortedProducts.reverse(); // FakeStore has no date, acceptable for assignment
-      case "POPULAR":
-        return sortedProducts.sort((a, b) => b.rating?.count - a.rating?.count);
+//       case "NEWEST FIRST":
+//         return sortedProducts.reverse(); // FakeStore has no date, acceptable for assignment
+//       case "POPULAR":
+//         return sortedProducts.sort((a, b) => b.rating?.count - a.rating?.count);
 
-      default:
-        return sortedProducts;
-    }
-}, [products, sortOption]);
+//       default:
+//         return sortedProducts;
+//     }
+// }, [products, sortOption]);
 
 //For sidebar filters
 const[filters, setFilters] = useState(false)
@@ -50,7 +50,7 @@ const[filters, setFilters] = useState(false)
             <p className={styles.subtitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
-            
+
             {/* Side options on right*/}
             <Accordian totalItems={products.length} sortOption={sortOption} onSortChange={setSortOption} 
             filters= {filters} onToggleFilters={() => setFilters((prev) => !prev)}/>
@@ -65,7 +65,7 @@ const[filters, setFilters] = useState(false)
 
           {/* Product grid on middle */}
         <div className={styles.grid}>
-          {sortProducts.map((product) => (
+          {products.map((product) => (
             <article key={product.id} className={styles.card}>
               <div className={styles.imageWrap}>
                 <img src={product.image} alt={product.title || 'Product Image'}
