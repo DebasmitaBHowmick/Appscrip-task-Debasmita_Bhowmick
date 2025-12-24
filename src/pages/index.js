@@ -34,7 +34,9 @@ export default function Home({products}) {
     <>
       <Head>
         <title>Products</title>
+        <meta name="description" content="Product listing page" />
       </Head>
+      
       <ProductHome products = {products} />
     </>
   );
