@@ -1,9 +1,9 @@
 import Head from "next/head";
 import ProductHome from "../components/ProductHome";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
-    const res = await fetch('https://fakestoreapi.com/products');
+    const res = await fetch(process.env.NEXT_PUBLIC_PRODUCTS_URL);
     if(!res.ok){ 
       throw new Error('Failed to fetch data');
     };
@@ -11,8 +11,7 @@ export async function getStaticProps() {
     const products = await res.json();
     //console.log(products);
     return {
-      props: {products},
-      revalidate: 60, // Revalidate every 60 seconds
+      props: {products}
     };
    
   } catch (error) {

@@ -40,6 +40,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 
-## Deploy on Netlify
+## Deploy on Vercel
 
-Live link: 
+This project demonstrates Server-Side Rendering (SSR) using Next.js through getServerSideProps.
+Because of this, the project is deployed on Vercel, which provides native and first-class support for SSR in Next.js.
+
+Platforms like Netlify are static-first and do not execute getServerSideProps at runtime without additional adapters or configuration. Since the goal of this assignment is to showcase SSR knowledge and correct architectural decisions, Vercel was the appropriate choice.
+
+Live Link: 
