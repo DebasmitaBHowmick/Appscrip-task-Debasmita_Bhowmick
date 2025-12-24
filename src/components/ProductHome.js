@@ -40,60 +40,57 @@ const ProductHome = ({ products }) => {
   const [filters, setFilters] = useState(false);
 
   return (
-    <section className={styles.page}>
-      <div className={styles.productsWrapper}>
-        <h1 className={styles.heading}>DISCOVER OUR PRODUCTS</h1>
+    <section className={styles.productsPage}>
+  {/* Heading */}
+  <h1>DISCOVER OUR PRODUCTS</h1>
+  <p className={styles.subtitle}>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+  </p>
 
-        <p className={styles.subtitle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+  {/* Toolbar / Accordion */}
+  <Accordian
+    totalItems={products.length}
+    sortOption={sortOption}
+    onSortChange={setSortOption}
+    onToggleFilters={() => setFilters((prev) => !prev)}
+  />
 
-        {/* Side options on right*/}
-        <Accordian
-          totalItems={products.length}
-          sortOption={sortOption}
-          onSortChange={setSortOption}
-          filters={filters}
-          onToggleFilters={() => setFilters((prev) => !prev)}
-        />
+  {/* Sidebar + Products */}
+  <div className={styles.sideLayout}>
+    {/* Sidebar */}
+    {filters && (
+      <aside className={styles.sidebarSlot}>
+        <SideBar isOpen={filters} />
+      </aside>
+    )}
 
-        {/* Sidebar on left */}
-        <div className={styles.sideLayout}>
-          <div className={styles.sidebarSlot}>
-            {<SideBar isOpen={filters} />}
+    {/* Products Grid */}
+    <div className={styles.grid}>
+      {products.map((product) => (
+        <article key={product.id} className={styles.card}>
+          <div className={styles.imageWrap}>
+            <img
+              src={product.image}
+              alt={product.title || "Product Image"}
+              className={styles.image}
+            />
           </div>
-        </div>
 
-        {/* Product grid on middle */}
-        <div className={styles.grid}>
-          { sortProducts.map((product) => (
-              <article key={product.id} className={styles.card}>
-                <div className={styles.imageWrap}>
-                  <img
-                    src={product.image}
-                    alt={product.title || "Product Image"}
-                    className={styles.image}
-                  />
-                </div>
+          <div className={styles.info}>
+            <h3 className={styles.title}>{product.title}</h3>
+            <p className={styles.category}>{product.category}</p>
 
-                <div className={styles.info}>
-                  <h3 className={styles.title}>{product.title}</h3>
-                  <p>{product.category}</p>
-                  <p className={styles.subtitle}>{product.description}</p>
+            <div className={styles.meta}>
+              <span className={styles.price}>₹ {product.price}</span>
+              <span className={styles.wishlist}>♡</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
 
-                  <div className={styles.meta}>
-                    <span className={styles.price}>₹ {product.price}</span>
-                    <span className={styles.wishlist}>♡</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-        </div>
-      </div>
-    </section>
   );
 };
 
