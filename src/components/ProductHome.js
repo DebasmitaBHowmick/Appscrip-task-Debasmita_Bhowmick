@@ -1,15 +1,18 @@
-import { useState, useMemo, use } from "react";
+import { useState, useMemo } from "react";
 import styles from "@/styles/productList.module.css";
 import Accordian from "./Accordian";
 import SideBar from "./SideBar";
 
 const ProductHome = ({ products }) => {
 
-if(products.length === 0 && !products){
-    return <div style={{ padding: 40, textAlign: "center" }}>
-        <p>No products are available</p>
+if (!Array.isArray(products) || products.length === 0) {
+  return (
+    <div style={{ padding: 40, textAlign: "center" }}>
+      <p>No products are available</p>
     </div>
+  );
 }
+
 const [sortOption, setSortOption] = useState("RECOMMENDED");
 
 //Logic for sorting products based on sortOption using memoization
@@ -40,11 +43,14 @@ const[filters, setFilters] = useState(false)
 
   return (
     <section className={styles.page}>
+
         <div className={styles.productsWrapper}>
             <h1 className={styles.heading}>DISCOVER OUR PRODUCTS</h1>
+
             <p className={styles.subtitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
+            
             {/* Side options on right*/}
             <Accordian totalItems={products.length} sortOption={sortOption} onSortChange={setSortOption} 
             filters= {filters} onToggleFilters={() => setFilters((prev) => !prev)}/>
