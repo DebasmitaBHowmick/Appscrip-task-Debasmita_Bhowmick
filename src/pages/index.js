@@ -1,3 +1,5 @@
+"use client";
+
 import Head from "next/head";
 import ProductHome from "../components/ProductHome";
 
@@ -36,7 +38,7 @@ export default function Home({products}) {
         <title>Products</title>
         <meta name="description" content="Product listing page" />
       </Head>
-      
+
       <ProductHome products = {products} />
     </>
   );
