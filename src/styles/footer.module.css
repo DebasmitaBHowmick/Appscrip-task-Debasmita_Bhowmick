@@ -1,0 +1,173 @@
+/* =========================
+   Footer Wrapper
+========================= */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 40px 30px;
+}
+
+/* =========================
+   Top Section
+========================= */
+.footerTop {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.newsletter h4,
+.footerInfo h4 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 12px;
+}
+
+.newsletterForm input {
+  width: 260px;
+  padding: 10px 12px;
+  border: none;
+  outline: none;
+}
+
+.newsletterForm button {
+  background: none;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+.footerInfo p {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.footerInfo span {
+  font-size: 11px;
+  color: #aaa;
+}
+
+/* Divider */
+.footer hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 1px solid #333;
+}
+
+/* =========================
+   Bottom Section
+========================= */
+.footerBottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.footerCol h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.footerCol ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerCol ul li {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Social */
+.socialIcons {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.socialIcons svg {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Payments */
+.acceptsTitle {
+  margin-bottom: 10px;
+}
+
+.payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.payments span {
+  background: #fff;
+  color: #000;
+  font-size: 11px;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+/* =========================
+   Copyright
+========================= */
+.copyright {
+  text-align: center;
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 40px;
+}
+
+/* =========================
+   Tablet
+========================= */
+@media (max-width: 1024px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+  }
+
+  .footerBottom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 16px 20px;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+  }
+
+  .newsletterForm input {
+    width: 100%;
+  }
+
+  .footerBottom {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
