@@ -32,6 +32,9 @@ export default function Home({products}) {
       <Head>
         <title>Products</title>
       </Head>
+      <div style={{padding:40}}>
+        <h1>Products</h1>
+      </div>
       <ProductHome products = {products} />
     </>
   );

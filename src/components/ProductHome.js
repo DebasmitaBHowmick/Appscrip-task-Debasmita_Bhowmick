@@ -6,9 +6,9 @@ import SideBar from "./SideBar";
 const ProductHome = ({ products }) => {
 
 if(products.length === 0 && !products){
-    return <main>
+    return <div style={{ padding: 40, textAlign: "center" }}>
         <p>No products are available</p>
-    </main>
+    </div>
 }
 const [sortOption, setSortOption] = useState("RECOMMENDED");
 
