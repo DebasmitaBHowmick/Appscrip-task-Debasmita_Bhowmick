@@ -3,7 +3,10 @@ import ProductHome from "../components/ProductHome";
 
 export async function getServerSideProps() {
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_PRODUCTS_URL || 'https://fakestoreapi.com/products');
+    const res = await fetch(process.env.NEXT_PUBLIC_PRODUCTS_URL || 'https://fakestoreapi.com/products', {
+      cache: "no-store"
+    })
+
     if(!res.ok){ 
       throw new Error('Failed to fetch data');
     };
@@ -15,7 +18,7 @@ export async function getServerSideProps() {
     };
    
   } catch (error) {
-    console.error(error);
+    console.error("SSR error :",error.message);
 
     return{
     props: {products: []}
@@ -32,9 +35,6 @@ export default function Home({products}) {
       <Head>
         <title>Products</title>
       </Head>
-      <div style={{padding:40}}>
-        <h1>Products</h1>
-      </div>
       <ProductHome products = {products} />
     </>
   );

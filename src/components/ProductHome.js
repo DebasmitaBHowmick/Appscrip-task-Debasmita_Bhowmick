@@ -42,18 +42,17 @@ const ProductHome = ({ products }) => {
   return (
     <section className={styles.productsPage}>
   {/* Heading */}
-  <h1>DISCOVER OUR PRODUCTS</h1>
+  <h1 className={styles.heading}>DISCOVER OUR PRODUCTS</h1>
   <p className={styles.subtitle}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+    lorem* ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. 
   </p>
 
   {/* Toolbar / Accordion */}
-  <Accordian
-    totalItems={products.length}
+  <Accordian totalItems={products.length}
     sortOption={sortOption}
     onSortChange={setSortOption}
-    onToggleFilters={() => setFilters((prev) => !prev)}
-  />
+    onToggleFilters={() => setFilters((prev) => !prev)} />
 
   {/* Sidebar + Products */}
   <div className={styles.sideLayout}>
@@ -66,7 +65,7 @@ const ProductHome = ({ products }) => {
 
     {/* Products Grid */}
     <div className={styles.grid}>
-      {products.map((product) => (
+      {sortProducts.map((product) => (
         <article key={product.id} className={styles.card}>
           <div className={styles.imageWrap}>
             <img
