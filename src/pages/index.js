@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ProductHome from "../components/ProductHome";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const res = await fetch('https://fakestoreapi.com/products');
     if(!res.ok){ 
@@ -11,7 +11,8 @@ export async function getServerSideProps() {
     const products = await res.json();
     //console.log(products);
     return {
-      props: {products}
+      props: {products},
+      revalidate: 60, // Revalidate every 60 seconds
     };
    
   } catch (error) {

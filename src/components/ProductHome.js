@@ -35,7 +35,7 @@ const sortProducts = useMemo(() => {
 }, [products, sortOption]);
 
 //For sidebar filters
-const[filters, setFilters] = useState(true)
+const[filters, setFilters] = useState(false)
 
 
   return (
