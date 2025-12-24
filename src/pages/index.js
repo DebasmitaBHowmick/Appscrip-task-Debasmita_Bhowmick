@@ -1,22 +1,26 @@
-
-
 import Head from "next/head";
 import ProductHome from "../components/ProductHome";
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps() {
   try {
-    const protocol = req.headers["x-forwarded-proto"] || "https";
-    const host = req.headers.host;
+    const res = await fetch("https://fakestoreapi.com/products", {
+      signal: AbortSignal.timeout(5000),
+    });
 
-    const res = await fetch(`${protocol}://${host}/api/products`);
+    if (!res.ok) throw new Error("API failed");
+
     const products = await res.json();
 
     return { props: { products } };
   } catch (error) {
-    console.error("SSR error:", error.message);
-    return { props: { products: [] } };
+    console.error("SSR fetch failed:", error.message);
+
+    return {
+      props: { products: [] }
+    };
   }
 }
+
 
 
 
